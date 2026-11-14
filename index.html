@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gabrielly Luiza · Sistemas, Agilidade & Desenvolvimento</title>
+  <meta name="description" content="Portfólio de Gabrielly Luiza — Gerente de Sistemas, Scrum Master e desenvolvedora. ERP, bancos de dados, BI e desenvolvimento." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #faf6f0;
+      --surface: #ffffff;
+      --ink: #1d1a24;
+      --muted: #6b6475;
+      --line: #e7e0d6;
+      --accent: #d6337f;
+      --accent-soft: #fde4f0;
+      --warm: #e8774a;
+      --radius: 18px;
+      --max: 1080px;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #14121a;
+        --surface: #1d1a25;
+        --ink: #f3eefb;
+        --muted: #a49cb3;
+        --line: #2e2939;
+        --accent: #ff69b4;
+        --accent-soft: #3a1a2c;
+        --warm: #ff9b70;
+      }
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: "Inter", system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; }
+    .wrap { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
+
+    /* NAV */
+    nav {
+      position: sticky; top: 0; z-index: 10;
+      background: color-mix(in srgb, var(--bg) 85%, transparent);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--line);
+    }
+    nav .wrap { display: flex; justify-content: space-between; align-items: center; height: 64px; }
+    .logo { font-family: "Fraunces", serif; font-weight: 700; font-size: 1.3rem; text-decoration: none; }
+    .logo span { color: var(--accent); }
+    nav ul { display: flex; gap: 28px; list-style: none; }
+    nav ul a { text-decoration: none; color: var(--muted); font-size: .92rem; font-weight: 500; transition: color .2s; }
+    nav ul a:hover { color: var(--ink); }
+
+    /* HERO */
+    .hero { padding: 110px 0 90px; position: relative; overflow: hidden; }
+    .hero::before {
+      content: ""; position: absolute; width: 520px; height: 520px; right: -140px; top: -120px;
+      background: radial-gradient(circle, var(--accent-soft) 0%, transparent 70%);
+      z-index: -1;
+    }
+    .tag {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-family: "JetBrains Mono", monospace; font-size: .8rem;
+      background: var(--accent-soft); color: var(--accent);
+      padding: 6px 14px; border-radius: 99px; margin-bottom: 28px;
+    }
+    .tag::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: #2ecc71; }
+    h1 {
+      font-family: "Fraunces", serif; font-weight: 600;
+      font-size: clamp(2.6rem, 6vw, 4.6rem); line-height: 1.05; letter-spacing: -.02em;
+      max-width: 15ch;
+    }
+    h1 em { font-style: italic; color: var(--accent); }
+    .hero p.lead { font-size: 1.15rem; color: var(--muted); max-width: 56ch; margin: 26px 0 36px; }
+    .btns { display: flex; gap: 14px; flex-wrap: wrap; }
+    .btn {
+      display: inline-block; padding: 13px 26px; border-radius: 99px;
+      font-weight: 600; font-size: .95rem; text-decoration: none; transition: transform .15s, box-shadow .15s;
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-primary { background: var(--ink); color: var(--bg); }
+    .btn-ghost { border: 1.5px solid var(--line); }
+
+    /* SECTIONS */
+    section { padding: 80px 0; border-top: 1px solid var(--line); }
+    .eyebrow { font-family: "JetBrains Mono", monospace; font-size: .8rem; color: var(--warm); letter-spacing: .08em; text-transform: uppercase; }
+    h2 { font-family: "Fraunces", serif; font-weight: 600; font-size: clamp(1.9rem, 3.5vw, 2.6rem); margin: 8px 0 36px; letter-spacing: -.01em; }
+
+    .about { display: grid; grid-template-columns: 1.3fr 1fr; gap: 48px; align-items: start; }
+    .about p { color: var(--muted); margin-bottom: 16px; font-size: 1.05rem; }
+    .about p strong { color: var(--ink); }
+    .stats { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .stat { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 22px; }
+    .stat b { display: block; font-family: "Fraunces", serif; font-size: 2rem; color: var(--accent); line-height: 1.1; }
+    .stat span { font-size: .88rem; color: var(--muted); }
+
+    /* SKILLS */
+    .skills { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 18px; }
+    .skill-card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 26px; }
+    .skill-card h3 { font-size: 1rem; margin-bottom: 14px; display: flex; align-items: center; gap: 10px; }
+    .skill-card h3 i { font-style: normal; font-size: 1.3rem; }
+    .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+    .chip { font-family: "JetBrains Mono", monospace; font-size: .76rem; padding: 5px 11px; border-radius: 8px; background: var(--bg); border: 1px solid var(--line); }
+
+    /* TIMELINE */
+    .timeline { position: relative; padding-left: 28px; }
+    .timeline::before { content: ""; position: absolute; left: 6px; top: 6px; bottom: 6px; width: 2px; background: var(--line); }
+    .item { position: relative; margin-bottom: 38px; }
+    .item::before {
+      content: ""; position: absolute; left: -28px; top: 6px; width: 14px; height: 14px; border-radius: 50%;
+      background: var(--bg); border: 3px solid var(--accent);
+    }
+    .item .when { font-family: "JetBrains Mono", monospace; font-size: .8rem; color: var(--muted); }
+    .item h3 { font-size: 1.15rem; margin: 2px 0 2px; }
+    .item .where { color: var(--accent); font-weight: 500; font-size: .95rem; }
+    .item p { color: var(--muted); margin-top: 8px; max-width: 70ch; }
+
+    /* PROJECTS */
+    .projects { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 22px; }
+    .project {
+      background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
+      padding: 28px; display: flex; flex-direction: column; transition: transform .2s, border-color .2s;
+    }
+    .project:hover { transform: translateY(-4px); border-color: var(--accent); }
+    .project .kind { font-family: "JetBrains Mono", monospace; font-size: .75rem; color: var(--warm); }
+    .project h3 { font-family: "Fraunces", serif; font-size: 1.4rem; margin: 6px 0 10px; }
+    .project p { color: var(--muted); font-size: .95rem; flex: 1; margin-bottom: 18px; }
+    .project ul { list-style: none; margin-bottom: 18px; }
+    .project li { font-size: .9rem; color: var(--muted); padding-left: 18px; position: relative; margin-bottom: 4px; }
+    .project li::before { content: "→"; position: absolute; left: 0; color: var(--accent); }
+    .project .links { display: flex; gap: 16px; margin-top: 14px; }
+    .project .links a { font-size: .88rem; font-weight: 600; color: var(--accent); text-decoration: none; }
+
+    /* EDUCATION */
+    .edu { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 18px; }
+    .edu div { border-left: 3px solid var(--accent); padding: 4px 0 4px 18px; }
+    .edu h3 { font-size: 1.02rem; }
+    .edu span { color: var(--muted); font-size: .9rem; }
+
+    /* CONTACT */
+    .contact { text-align: center; padding: 100px 0; }
+    .contact h2 { font-size: clamp(2.2rem, 5vw, 3.4rem); margin-bottom: 18px; }
+    .contact p { color: var(--muted); max-width: 52ch; margin: 0 auto 32px; }
+    .socials { display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; margin-top: 26px; }
+    .socials a { font-family: "JetBrains Mono", monospace; font-size: .85rem; color: var(--muted); text-decoration: none; border-bottom: 1px dashed var(--line); }
+    .socials a:hover { color: var(--accent); }
+
+    footer { text-align: center; padding: 30px 0; color: var(--muted); font-size: .82rem; border-top: 1px solid var(--line); }
+
+    /* Reveal */
+    .reveal { opacity: 0; transform: translateY(18px); transition: opacity .7s ease, transform .7s ease; }
+    .reveal.show { opacity: 1; transform: none; }
+    @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } html { scroll-behavior: auto; } }
+
+    @media (max-width: 760px) {
+      nav ul { display: none; }
+      .about { grid-template-columns: 1fr; }
+      .hero { padding: 70px 0 60px; }
+      section { padding: 60px 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="wrap">
+      <a href="#" class="logo">glsouzza<span>.</span></a>
+      <ul>
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#habilidades">Habilidades</a></li>
+        <li><a href="#experiencia">Experiência</a></li>
+        <li><a href="#projetos">Projetos</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="wrap">
+      <div class="tag">disponível para projetos freelance</div>
+      <h1>Conecto <em>pessoas</em>, processos e código.</h1>
+      <p class="lead">
+        Sou Gabrielly Luiza — Gerente de Sistemas e Scrum Master, com 3+ anos transformando
+        processos complexos em soluções simples. ERP, bancos de dados, BI e desenvolvimento,
+        do banco de dados ao front-end.
+      </p>
+      <div class="btns">
+        <a href="#projetos" class="btn btn-primary">Ver projetos</a>
+        <a href="#contato" class="btn btn-ghost">Vamos conversar</a>
+      </div>
+    </div>
+  </header>
+
+  <section id="sobre">
+    <div class="wrap about reveal">
+      <div>
+        <div class="eyebrow">01 — Sobre mim</div>
+        <h2>Entre o negócio e a tecnologia</h2>
+        <p>
+          Comecei na área administrativa e no suporte a sistemas ERP, o que me deu algo que
+          muitos desenvolvedores não têm: <strong>a visão de quem usa o sistema no dia a dia</strong>.
+        </p>
+        <p>
+          Hoje atuo como <strong>Gerente de Sistemas</strong> na TRR Vale da Serra, liderando a infraestrutura
+          de TI, o ERP, os bancos Oracle e PostgreSQL e os dashboards de Power BI. Em paralelo, desenvolvo APIs em <strong>Kotlin/Spring Boot</strong>,
+          interfaces em <strong>React</strong> e testes automatizados.
+        </p>
+        <p>
+          Meu foco agora é a <strong>agilidade</strong>: atuar como Scrum Master e consultora,
+          ajudando times e empresas a organizar o trabalho e entregar valor de verdade.
+        </p>
+      </div>
+      <div class="stats">
+        <div class="stat"><b>99,9%</b><span>de disponibilidade dos sistemas</span></div>
+        <div class="stat"><b>100+</b><span>colaboradores atendidos pela TI</span></div>
+        <div class="stat"><b>−30%</b><span>no tempo médio de atendimento</span></div>
+        <div class="stat"><b>−50%</b><span>no tempo de queries SQL</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="habilidades">
+    <div class="wrap reveal">
+      <div class="eyebrow">02 — Habilidades</div>
+      <h2>Minha caixa de ferramentas</h2>
+      <div class="skills">
+        <div class="skill-card">
+          <h3><i>🧭</i> Agilidade & Gestão</h3>
+          <div class="chips">
+            <span class="chip">Scrum</span><span class="chip">Kanban</span>
+            <span class="chip">Liderança</span><span class="chip">Gestão de projetos</span><span class="chip">Business Intelligence</span>
+            <span class="chip">Onboarding</span>
+          </div>
+        </div>
+        <div class="skill-card">
+          <h3><i>⚙️</i> Back-end</h3>
+          <div class="chips">
+            <span class="chip">Kotlin</span><span class="chip">Spring Boot</span>
+            <span class="chip">C# / .NET</span><span class="chip">Python</span>
+            <span class="chip">Node.js</span>
+          </div>
+        </div>
+        <div class="skill-card">
+          <h3><i>🎨</i> Front-end & Design</h3>
+          <div class="chips">
+            <span class="chip">React</span><span class="chip">JavaScript</span><span class="chip">HTML5</span><span class="chip">CSS3</span>
+            <span class="chip">Figma</span><span class="chip">Prototipação</span>
+          </div>
+        </div>
+        <div class="skill-card">
+          <h3><i>🗄️</i> Dados</h3>
+          <div class="chips">
+            <span class="chip">Oracle</span><span class="chip">PostgreSQL</span>
+            <span class="chip">SQL Server</span><span class="chip">SQL</span>
+            <span class="chip">Power BI</span>
+          </div>
+        </div>
+        <div class="skill-card">
+          <h3><i>🧪</i> Qualidade & DevOps</h3>
+          <div class="chips">
+            <span class="chip">JUnit 5</span><span class="chip">MockK</span>
+            <span class="chip">Testcontainers</span><span class="chip">Playwright</span>
+            <span class="chip">Docker</span><span class="chip">Flyway</span><span class="chip">GitHub Actions</span>
+            <span class="chip">GitLab CI/CD</span>
+          </div>
+        </div>
+        <div class="skill-card">
+          <h3><i>🏢</i> Sistemas empresariais</h3>
+          <div class="chips">
+            <span class="chip">ERP / PDV</span><span class="chip">Questor</span>
+            <span class="chip">VIASOFT</span><span class="chip">NF-e / NFS-e</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="experiencia">
+    <div class="wrap reveal">
+      <div class="eyebrow">03 — Experiência</div>
+      <h2>Trajetória</h2>
+      <div class="timeline">
+        <div class="item">
+          <div class="when">abr/2023 — atual</div>
+          <h3>Gerente de Sistemas</h3>
+          <div class="where">TRR Vale da Serra Transportes · MT</div>
+          <p>Liderança da infraestrutura de TI para 100+ colaboradores. Backup automatizado com 99,9% de
+            disponibilidade, migração de ERP legado sem downtime, automação e documentação que reduziram
+            em 30% o tempo de atendimento e dashboards Power BI que ampliaram em 40% a visibilidade estratégica.</p>
+        </div>
+        <div class="item">
+          <div class="when">ago/2022 — ago/2023</div>
+          <h3>Analista de Projetos · Scrum Master</h3>
+          <div class="where">Smart BR Soluções Tecnológicas · Cascavel, PR</div>
+          <p>Scrum Master de um time de 5 desenvolvedores em um PDV multifuncional. Pipeline CI/CD que levou
+            o deploy de 4h para 30min, protótipos em Figma que aumentaram a adoção em 25% e migrations
+            automatizadas com Flyway.</p>
+        </div>
+        <div class="item">
+          <div class="when">abr/2022 — abr/2023</div>
+          <h3>Analista de Sistemas</h3>
+          <div class="where">TRR Vale da Serra Transportes · Barra do Garças, MT</div>
+          <p>Administração de bancos Oracle e PostgreSQL, rotinas preventivas que reduziram incidentes em 45%
+            e capacitação de 50+ usuários no novo ERP.</p>
+        </div>
+        <div class="item">
+          <div class="when">set/2021 — abr/2022</div>
+          <h3>Analista de Suporte de Sistemas</h3>
+          <div class="where">VIASOFT · Pato Branco, PR</div>
+          <p>Suporte N1 a N3 em ERP/PDV, 40+ chamados por semana com SLA de 95% e otimizações SQL
+            de até 50% no tempo de processamento.</p>
+        </div>
+        <div class="item">
+          <div class="when">2017 — 2021</div>
+          <h3>Experiência administrativa</h3>
+          <div class="where">Meu DP · Orientar Contadores · Turim Insumos e Cereais</div>
+          <p>Processos administrativos, folha de pagamento, compliance fiscal e atendimento ao cliente —
+            a base que hoje me ajuda a traduzir o negócio em sistemas.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projetos">
+    <div class="wrap reveal">
+      <div class="eyebrow">04 — Projetos</div>
+      <h2>O que eu ando construindo</h2>
+      <div class="projects">
+        <article class="project">
+          <div class="kind">API · Back-end</div>
+          <h3>SaveAdd API</h3>
+          <p>API REST para a plataforma SaveAdd, com cadastro de empresas, endereços e usuários.</p>
+          <ul>
+            <li>Kotlin + Spring Boot + Gradle</li>
+            <li>SQL Server com Testcontainers</li>
+            <li>Testes com JUnit 5, MockK, Kotest e Datafaker</li>
+          </ul>
+          <div class="links">
+            <a href="https://saveadd.com.br" target="_blank" rel="noopener">Ver produto ↗</a>
+          </div>
+        </article>
+        <article class="project">
+          <div class="kind">Front-end · Testes E2E</div>
+          <h3>FoodGate</h3>
+          <p>Aplicação web em React integrada ao SaveAdd, com seleção de perfis e fluxos de compra.</p>
+          <ul>
+            <li>React + JavaScript</li>
+            <li>Testes end-to-end com Playwright (Chromium, Firefox, WebKit)</li>
+            <li>Pipeline automatizado no GitHub Actions</li>
+          </ul>
+        </article>
+        <article class="project">
+          <div class="kind">UI/UX · Protótipo</div>
+          <h3>Organograma de Redes</h3>
+          <p>Protótipo interativo para visualizar a infraestrutura de rede de uma empresa:
+            servidor principal, servidores por departamento e switches.</p>
+          <ul>
+            <li>Figma com interações de Prototype</li>
+            <li>Layout desktop 1440×1024</li>
+          </ul>
+          <div class="links">
+            <a href="#" target="_blank" rel="noopener">Ver no Figma ↗</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="formacao">
+    <div class="wrap reveal">
+      <div class="eyebrow">05 — Formação</div>
+      <h2>Sempre estudando</h2>
+      <div class="edu">
+        <div><h3>Ciência da Computação</h3><span>Afya · em andamento</span></div>
+        <div><h3>Análise e Desenvolvimento de Sistemas</h3><span>UNASP · 2024 – 2027</span></div>
+        <div><h3>Bootcamps e trilhas</h3><span>DIO · formação contínua</span></div>
+        <div><h3>Técnico em Administração</h3><span>+ Comunicação Profissional</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contato" class="contact">
+    <div class="wrap reveal">
+      <div class="eyebrow">06 — Contato</div>
+      <h2>Tem um projeto em mente?</h2>
+      <p>Estou aberta a projetos como Scrum Master, consultoria em sistemas e desenvolvimento.
+        Me manda uma mensagem!</p>
+      <a href="mailto:gabriellyluiza.gc@gmail.com" class="btn btn-primary">Enviar e-mail</a>
+      <div class="socials">
+        <a href="https://www.linkedin.com/in/glsouzza" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://github.com/glsouzza" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://wa.me/5546991031046" target="_blank" rel="noopener">WhatsApp</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    © <span id="ano"></span> Gabrielly Luiza · Mariópolis – PR · feito com café e HTML puro
+  </footer>
+
+  <script>
+    document.getElementById("ano").textContent = new Date().getFullYear();
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add("show"); io.unobserve(e.target); } });
+    }, { threshold: 0.12 });
+    document.querySelectorAll(".reveal").forEach((el) => io.observe(el));
+  </script>
+</body>
+</html>
