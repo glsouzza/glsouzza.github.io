@@ -3,168 +3,192 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Gabrielly Luiza · Sistemas, Agilidade & Desenvolvimento</title>
-  <meta name="description" content="Portfólio de Gabrielly Luiza — Gerente de Sistemas, Scrum Master e desenvolvedora. ERP, bancos de dados, BI e desenvolvimento." />
+  <title>Gabrielly Luiza · Sistemas ERP, Projetos & Tecnologia</title>
+  <meta name="description" content="Portfólio de Gabrielly Luiza — Analista de Sistemas ERP, Scrum e projetos de tecnologia. Fundadora da GLSOUZZA Tech." />
+  <meta name="theme-color" content="#05030c" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Poppins:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --bg: #faf6f0;
-      --surface: #ffffff;
-      --ink: #1d1a24;
-      --muted: #6b6475;
-      --line: #e7e0d6;
-      --accent: #d6337f;
-      --accent-soft: #fde4f0;
-      --warm: #e8774a;
+      color-scheme: dark;
+      --bg: #05030c;
+      --bg2: #0b0618;
+      --card: rgba(18, 10, 36, .88);
+      --line: #2a1c4d;
+      --line2: #5a3aa0;
+      --ink: #f6f2ff;
+      --soft: #d6d0ea;
+      --muted: #a59fc0;
+      --pink: #ff2d8c;
+      --purp: #aa46ff;
+      --blue: #467dff;
+      --cyan: #00d4ff;
+      --grad: linear-gradient(90deg, #ff2d8c, #aa46ff 50%, #467dff);
+      --kitgrad: linear-gradient(90deg, #ff6ec7, #b45cff 34%, #2d7bff 73%, #00d4ff);
+      --head: "Oswald", "Arial Narrow", Impact, sans-serif;
+      --font: "Poppins", "Segoe UI", Arial, sans-serif;
+      --mono: "JetBrains Mono", ui-monospace, Consolas, monospace;
       --radius: 18px;
-      --max: 1080px;
-    }
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --bg: #14121a;
-        --surface: #1d1a25;
-        --ink: #f3eefb;
-        --muted: #a49cb3;
-        --line: #2e2939;
-        --accent: #ff69b4;
-        --accent-soft: #3a1a2c;
-        --warm: #ff9b70;
-      }
+      --max: 1100px;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
     body {
-      font-family: "Inter", system-ui, sans-serif;
+      font-family: var(--font);
       background: var(--bg);
       color: var(--ink);
-      line-height: 1.6;
+      line-height: 1.65;
       -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    body::before {
+      content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none;
+      background:
+        radial-gradient(600px 400px at 85% -5%, rgba(170, 70, 255, .22), transparent 70%),
+        radial-gradient(500px 380px at -10% 30%, rgba(255, 45, 140, .12), transparent 70%),
+        radial-gradient(520px 420px at 110% 75%, rgba(0, 212, 255, .08), transparent 70%);
     }
     a { color: inherit; }
     .wrap { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
+    .grad { background: var(--kitgrad); -webkit-background-clip: text; background-clip: text; color: transparent; }
 
     /* NAV */
     nav {
       position: sticky; top: 0; z-index: 10;
-      background: color-mix(in srgb, var(--bg) 85%, transparent);
-      backdrop-filter: blur(10px);
+      background: rgba(5, 3, 12, .78); backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--line);
     }
-    nav .wrap { display: flex; justify-content: space-between; align-items: center; height: 64px; }
-    .logo { font-family: "Fraunces", serif; font-weight: 700; font-size: 1.3rem; text-decoration: none; }
-    .logo span { color: var(--accent); }
+    nav .wrap { display: flex; justify-content: space-between; align-items: center; height: 66px; }
+    .logo { font-family: var(--mono); font-weight: 500; font-size: 1.05rem; text-decoration: none; letter-spacing: .02em; }
+    .logo b { color: var(--pink); font-weight: 500; }
     nav ul { display: flex; gap: 28px; list-style: none; }
-    nav ul a { text-decoration: none; color: var(--muted); font-size: .92rem; font-weight: 500; transition: color .2s; }
+    nav ul a { text-decoration: none; color: var(--muted); font-size: .9rem; font-weight: 500; transition: color .2s; }
     nav ul a:hover { color: var(--ink); }
 
     /* HERO */
-    .hero { padding: 110px 0 90px; position: relative; overflow: hidden; }
-    .hero::before {
-      content: ""; position: absolute; width: 520px; height: 520px; right: -140px; top: -120px;
-      background: radial-gradient(circle, var(--accent-soft) 0%, transparent 70%);
-      z-index: -1;
-    }
+    .hero { padding: 110px 0 96px; }
     .tag {
-      display: inline-flex; align-items: center; gap: 8px;
-      font-family: "JetBrains Mono", monospace; font-size: .8rem;
-      background: var(--accent-soft); color: var(--accent);
-      padding: 6px 14px; border-radius: 99px; margin-bottom: 28px;
+      display: inline-flex; align-items: center; gap: 10px;
+      font-family: var(--mono); font-size: .78rem; color: var(--soft);
+      border: 1px solid var(--line2); background: var(--card);
+      padding: 7px 15px; border-radius: 99px; margin-bottom: 30px;
     }
-    .tag::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: #2ecc71; }
+    .tag::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--cyan); box-shadow: 0 0 10px var(--cyan); }
     h1 {
-      font-family: "Fraunces", serif; font-weight: 600;
-      font-size: clamp(2.6rem, 6vw, 4.6rem); line-height: 1.05; letter-spacing: -.02em;
-      max-width: 15ch;
+      font-family: var(--head); font-weight: 700; text-transform: uppercase;
+      font-size: clamp(2.9rem, 7.5vw, 5.8rem); line-height: .98; letter-spacing: .005em;
+      max-width: 13ch;
     }
-    h1 em { font-style: italic; color: var(--accent); }
-    .hero p.lead { font-size: 1.15rem; color: var(--muted); max-width: 56ch; margin: 26px 0 36px; }
+    .hero p.lead { font-size: 1.12rem; color: var(--soft); max-width: 58ch; margin: 28px 0 38px; }
+    .hero p.lead strong { color: var(--ink); font-weight: 600; }
     .btns { display: flex; gap: 14px; flex-wrap: wrap; }
     .btn {
-      display: inline-block; padding: 13px 26px; border-radius: 99px;
-      font-weight: 600; font-size: .95rem; text-decoration: none; transition: transform .15s, box-shadow .15s;
+      display: inline-block; padding: 13px 28px; border-radius: 99px;
+      font-weight: 600; font-size: .95rem; text-decoration: none; transition: transform .15s, box-shadow .2s;
     }
     .btn:hover { transform: translateY(-2px); }
-    .btn-primary { background: var(--ink); color: var(--bg); }
-    .btn-ghost { border: 1.5px solid var(--line); }
+    .btn-primary { background: var(--grad); color: #fff; box-shadow: 0 8px 30px rgba(170, 70, 255, .35); }
+    .btn-primary:hover { box-shadow: 0 10px 38px rgba(255, 45, 140, .45); }
+    .btn-ghost { border: 1.5px solid var(--line2); color: var(--ink); }
 
     /* SECTIONS */
-    section { padding: 80px 0; border-top: 1px solid var(--line); }
-    .eyebrow { font-family: "JetBrains Mono", monospace; font-size: .8rem; color: var(--warm); letter-spacing: .08em; text-transform: uppercase; }
-    h2 { font-family: "Fraunces", serif; font-weight: 600; font-size: clamp(1.9rem, 3.5vw, 2.6rem); margin: 8px 0 36px; letter-spacing: -.01em; }
+    section { padding: 86px 0; border-top: 1px solid var(--line); }
+    .eyebrow { font-family: var(--mono); font-size: .78rem; color: var(--pink); letter-spacing: .1em; text-transform: uppercase; }
+    h2 {
+      font-family: var(--head); font-weight: 600; text-transform: uppercase;
+      font-size: clamp(2rem, 4.2vw, 3rem); line-height: 1.05; margin: 10px 0 40px; letter-spacing: .01em;
+    }
+    .card { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); }
 
-    .about { display: grid; grid-template-columns: 1.3fr 1fr; gap: 48px; align-items: start; }
-    .about p { color: var(--muted); margin-bottom: 16px; font-size: 1.05rem; }
-    .about p strong { color: var(--ink); }
+    /* ABOUT */
+    .about { display: grid; grid-template-columns: 1.25fr 1fr; gap: 52px; align-items: start; }
+    .about p { color: var(--soft); margin-bottom: 16px; font-size: 1.03rem; }
+    .about p strong { color: var(--ink); font-weight: 600; }
     .stats { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-    .stat { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 22px; }
-    .stat b { display: block; font-family: "Fraunces", serif; font-size: 2rem; color: var(--accent); line-height: 1.1; }
-    .stat span { font-size: .88rem; color: var(--muted); }
+    .stat { padding: 22px; }
+    .stat b { display: block; font-family: var(--head); font-size: 2.3rem; line-height: 1.05; }
+    .stat span { font-size: .85rem; color: var(--muted); }
 
     /* SKILLS */
-    .skills { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 18px; }
-    .skill-card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 26px; }
-    .skill-card h3 { font-size: 1rem; margin-bottom: 14px; display: flex; align-items: center; gap: 10px; }
-    .skill-card h3 i { font-style: normal; font-size: 1.3rem; }
+    .skills { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 18px; }
+    .skill-card { padding: 26px; transition: border-color .2s; }
+    .skill-card:hover { border-color: var(--line2); }
+    .skill-card h3 { font-size: 1rem; font-weight: 600; margin-bottom: 14px; display: flex; align-items: center; gap: 10px; }
+    .skill-card h3 i { font-style: normal; font-size: 1.25rem; }
     .chips { display: flex; flex-wrap: wrap; gap: 8px; }
-    .chip { font-family: "JetBrains Mono", monospace; font-size: .76rem; padding: 5px 11px; border-radius: 8px; background: var(--bg); border: 1px solid var(--line); }
+    .chip { font-family: var(--mono); font-size: .74rem; padding: 5px 11px; border-radius: 8px; background: var(--bg2); border: 1px solid var(--line); color: var(--soft); }
 
     /* TIMELINE */
-    .timeline { position: relative; padding-left: 28px; }
-    .timeline::before { content: ""; position: absolute; left: 6px; top: 6px; bottom: 6px; width: 2px; background: var(--line); }
-    .item { position: relative; margin-bottom: 38px; }
+    .timeline { position: relative; padding-left: 30px; }
+    .timeline::before { content: ""; position: absolute; left: 6px; top: 8px; bottom: 8px; width: 2px; background: linear-gradient(var(--pink), var(--purp), var(--blue), transparent); }
+    .item { position: relative; margin-bottom: 40px; }
     .item::before {
-      content: ""; position: absolute; left: -28px; top: 6px; width: 14px; height: 14px; border-radius: 50%;
-      background: var(--bg); border: 3px solid var(--accent);
+      content: ""; position: absolute; left: -30px; top: 7px; width: 14px; height: 14px; border-radius: 50%;
+      background: var(--bg); border: 3px solid var(--purp);
     }
-    .item .when { font-family: "JetBrains Mono", monospace; font-size: .8rem; color: var(--muted); }
-    .item h3 { font-size: 1.15rem; margin: 2px 0 2px; }
-    .item .where { color: var(--accent); font-weight: 500; font-size: .95rem; }
-    .item p { color: var(--muted); margin-top: 8px; max-width: 70ch; }
+    .item.now::before { border-color: var(--cyan); box-shadow: 0 0 12px var(--cyan); }
+    .item .when { font-family: var(--mono); font-size: .78rem; color: var(--muted); }
+    .item h3 { font-size: 1.15rem; font-weight: 600; margin: 3px 0 1px; }
+    .item .where { color: var(--pink); font-weight: 500; font-size: .93rem; }
+    .item p { color: var(--soft); margin-top: 8px; max-width: 72ch; font-size: .97rem; }
 
     /* PROJECTS */
     .projects { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 22px; }
-    .project {
-      background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
-      padding: 28px; display: flex; flex-direction: column; transition: transform .2s, border-color .2s;
-    }
-    .project:hover { transform: translateY(-4px); border-color: var(--accent); }
-    .project .kind { font-family: "JetBrains Mono", monospace; font-size: .75rem; color: var(--warm); }
-    .project h3 { font-family: "Fraunces", serif; font-size: 1.4rem; margin: 6px 0 10px; }
-    .project p { color: var(--muted); font-size: .95rem; flex: 1; margin-bottom: 18px; }
-    .project ul { list-style: none; margin-bottom: 18px; }
-    .project li { font-size: .9rem; color: var(--muted); padding-left: 18px; position: relative; margin-bottom: 4px; }
-    .project li::before { content: "→"; position: absolute; left: 0; color: var(--accent); }
-    .project .links { display: flex; gap: 16px; margin-top: 14px; }
-    .project .links a { font-size: .88rem; font-weight: 600; color: var(--accent); text-decoration: none; }
+    .project { padding: 28px; display: flex; flex-direction: column; position: relative; overflow: hidden; transition: transform .2s, border-color .2s; }
+    .project::before { content: ""; position: absolute; left: 0; top: 0; right: 0; height: 3px; background: var(--kitgrad); }
+    .project:hover { transform: translateY(-4px); border-color: var(--line2); }
+    .project .kind { font-family: var(--mono); font-size: .74rem; color: var(--cyan); }
+    .project h3 { font-family: var(--head); font-weight: 600; text-transform: uppercase; font-size: 1.55rem; margin: 6px 0 10px; letter-spacing: .01em; }
+    .project p { color: var(--soft); font-size: .94rem; margin-bottom: 16px; }
+    .project ul { list-style: none; margin-bottom: 18px; flex: 1; }
+    .project li { font-size: .88rem; color: var(--muted); padding-left: 18px; position: relative; margin-bottom: 5px; }
+    .project li::before { content: ">"; position: absolute; left: 0; color: var(--pink); font-family: var(--mono); }
+    .project .links { display: flex; gap: 18px; flex-wrap: wrap; }
+    .project .links a { font-size: .88rem; font-weight: 600; color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--pink); padding-bottom: 1px; }
+    .project .links a:hover { color: var(--pink); }
 
     /* EDUCATION */
-    .edu { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 18px; }
-    .edu div { border-left: 3px solid var(--accent); padding: 4px 0 4px 18px; }
-    .edu h3 { font-size: 1.02rem; }
-    .edu span { color: var(--muted); font-size: .9rem; }
+    .edu { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 18px; }
+    .edu div { padding: 22px 22px 22px 24px; border-left: 3px solid var(--purp); }
+    .edu h3 { font-size: 1rem; font-weight: 600; }
+    .edu span { color: var(--muted); font-size: .88rem; }
 
     /* CONTACT */
-    .contact { text-align: center; padding: 100px 0; }
-    .contact h2 { font-size: clamp(2.2rem, 5vw, 3.4rem); margin-bottom: 18px; }
-    .contact p { color: var(--muted); max-width: 52ch; margin: 0 auto 32px; }
-    .socials { display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; margin-top: 26px; }
-    .socials a { font-family: "JetBrains Mono", monospace; font-size: .85rem; color: var(--muted); text-decoration: none; border-bottom: 1px dashed var(--line); }
-    .socials a:hover { color: var(--accent); }
+    .contact { text-align: center; padding: 104px 0; }
+    .contact h2 { font-size: clamp(2.3rem, 5.5vw, 3.8rem); margin-bottom: 18px; }
+    .contact p { color: var(--soft); max-width: 54ch; margin: 0 auto 34px; }
+    .socials { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; margin-top: 30px; }
+    .socials a {
+      font-family: var(--mono); font-size: .82rem; color: var(--soft); text-decoration: none;
+      border: 1px solid var(--line); background: var(--card); padding: 8px 16px; border-radius: 99px; transition: border-color .2s, color .2s;
+    }
+    .socials a:hover { color: var(--ink); border-color: var(--pink); }
+    .company {
+      margin: 46px auto 0; max-width: 620px; padding: 26px 28px; text-align: left;
+      display: flex; gap: 20px; align-items: center;
+    }
+    .company .mark {
+      flex: none; width: 64px; height: 64px; border-radius: 16px; display: grid; place-items: center;
+      background: var(--bg2); border: 1px solid var(--line2);
+      font-family: var(--head); font-weight: 700; font-size: 1.6rem;
+    }
+    .company p { margin: 0; font-size: .93rem; color: var(--soft); }
+    .company a { color: var(--pink); font-weight: 600; text-decoration: none; }
 
-    footer { text-align: center; padding: 30px 0; color: var(--muted); font-size: .82rem; border-top: 1px solid var(--line); }
+    footer { text-align: center; padding: 30px 0; color: var(--muted); font-size: .8rem; border-top: 1px solid var(--line); font-family: var(--mono); }
 
     /* Reveal */
     .reveal { opacity: 0; transform: translateY(18px); transition: opacity .7s ease, transform .7s ease; }
     .reveal.show { opacity: 1; transform: none; }
     @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } html { scroll-behavior: auto; } }
 
-    @media (max-width: 760px) {
+    @media (max-width: 780px) {
       nav ul { display: none; }
       .about { grid-template-columns: 1fr; }
-      .hero { padding: 70px 0 60px; }
-      section { padding: 60px 0; }
+      .hero { padding: 72px 0 64px; }
+      section { padding: 64px 0; }
+      .company { flex-direction: column; text-align: center; }
     }
   </style>
 </head>
@@ -172,7 +196,7 @@
 
   <nav>
     <div class="wrap">
-      <a href="#" class="logo">glsouzza<span>.</span></a>
+      <a href="#" class="logo"><b>&lt;</b>glsouzza<b>/&gt;</b></a>
       <ul>
         <li><a href="#sobre">Sobre</a></li>
         <li><a href="#habilidades">Habilidades</a></li>
@@ -185,16 +209,16 @@
 
   <header class="hero">
     <div class="wrap">
-      <div class="tag">disponível para projetos freelance</div>
-      <h1>Conecto <em>pessoas</em>, processos e código.</h1>
+      <div class="tag">Mariópolis – PR · trabalho remoto</div>
+      <h1>Conecto <span class="grad">pessoas</span>, processos e código.</h1>
       <p class="lead">
-        Sou Gabrielly Luiza — Gerente de Sistemas e Scrum Master, com 3+ anos transformando
-        processos complexos em soluções simples. ERP, bancos de dados, BI e desenvolvimento,
-        do banco de dados ao front-end.
+        Sou <strong>Gabrielly Luiza</strong>, Analista de Sistemas ERP na <strong>Questor</strong> e fundadora da
+        <strong>GLSOUZZA Tech</strong>. Há mais de 4 anos transformo processos complexos em soluções simples:
+        ERP, bancos de dados, BI, projetos ágeis e agora inteligência artificial.
       </p>
       <div class="btns">
         <a href="#projetos" class="btn btn-primary">Ver projetos</a>
-        <a href="#contato" class="btn btn-ghost">Vamos conversar</a>
+        <a href="#experiencia" class="btn btn-ghost">Minha trajetória</a>
       </div>
     </div>
   </header>
@@ -203,26 +227,27 @@
     <div class="wrap about reveal">
       <div>
         <div class="eyebrow">01 — Sobre mim</div>
-        <h2>Entre o negócio e a tecnologia</h2>
+        <h2>Entre o negócio e a <span class="grad">tecnologia</span></h2>
         <p>
-          Comecei na área administrativa e no suporte a sistemas ERP, o que me deu algo que
-          muitos desenvolvedores não têm: <strong>a visão de quem usa o sistema no dia a dia</strong>.
+          Comecei na área administrativa e em escritórios contábeis, passei pelo suporte de sistemas e cheguei à
+          gestão de TI. Esse caminho me deu algo valioso: <strong>a visão de quem usa o sistema no dia a dia</strong>.
         </p>
         <p>
-          Hoje atuo como <strong>Gerente de Sistemas</strong> na TRR Vale da Serra, liderando a infraestrutura
-          de TI, o ERP, os bancos Oracle e PostgreSQL e os dashboards de Power BI. Em paralelo, desenvolvo APIs em <strong>Kotlin/Spring Boot</strong>,
-          interfaces em <strong>React</strong> e testes automatizados.
+          Como <strong>Gerente de Sistemas</strong>, liderei a TI de uma transportadora com mais de 100 colaboradores,
+          migrei o ERP sem parar a operação e criei dashboards em Power BI. Como <strong>Scrum Master</strong>,
+          conduzi um time de desenvolvimento na entrega de um PDV.
         </p>
         <p>
-          Meu foco agora é a <strong>agilidade</strong>: atuar como Scrum Master e consultora,
-          ajudando times e empresas a organizar o trabalho e entregar valor de verdade.
+          Hoje trabalho com análise funcional de ERP na Questor, com foco em processos administrativos, fiscais e
+          tributários, e sigo estudando Ciência da Computação. Como entendo SQL, Oracle e PostgreSQL,
+          <strong>converso com desenvolvedores sem precisar de tradutor</strong>.
         </p>
       </div>
       <div class="stats">
-        <div class="stat"><b>99,9%</b><span>de disponibilidade dos sistemas</span></div>
-        <div class="stat"><b>100+</b><span>colaboradores atendidos pela TI</span></div>
-        <div class="stat"><b>−30%</b><span>no tempo médio de atendimento</span></div>
-        <div class="stat"><b>−50%</b><span>no tempo de queries SQL</span></div>
+        <div class="stat card"><b class="grad">99,9%</b><span>de disponibilidade dos sistemas com backup automatizado</span></div>
+        <div class="stat card"><b class="grad">−30%</b><span>no tempo médio de atendimento técnico</span></div>
+        <div class="stat card"><b class="grad">−45%</b><span>de incidentes com rotinas preventivas</span></div>
+        <div class="stat card"><b class="grad">4h→30min</b><span>no deploy com pipeline CI/CD</span></div>
       </div>
     </div>
   </section>
@@ -230,53 +255,50 @@
   <section id="habilidades">
     <div class="wrap reveal">
       <div class="eyebrow">02 — Habilidades</div>
-      <h2>Minha caixa de ferramentas</h2>
+      <h2>Minha caixa de <span class="grad">ferramentas</span></h2>
       <div class="skills">
-        <div class="skill-card">
-          <h3><i>🧭</i> Agilidade & Gestão</h3>
+        <div class="skill-card card">
+          <h3><i>🧭</i> Projetos & Agilidade</h3>
           <div class="chips">
-            <span class="chip">Scrum</span><span class="chip">Kanban</span>
-            <span class="chip">Liderança</span><span class="chip">Gestão de projetos</span><span class="chip">Business Intelligence</span>
-            <span class="chip">Onboarding</span>
+            <span class="chip">Scrum</span><span class="chip">Kanban</span><span class="chip">PMO</span>
+            <span class="chip">Requisitos</span><span class="chip">Backlog</span><span class="chip">Liderança</span>
           </div>
         </div>
-        <div class="skill-card">
-          <h3><i>⚙️</i> Back-end</h3>
+        <div class="skill-card card">
+          <h3><i>🏢</i> ERP & Processos</h3>
           <div class="chips">
-            <span class="chip">Kotlin</span><span class="chip">Spring Boot</span>
-            <span class="chip">C# / .NET</span><span class="chip">Python</span>
-            <span class="chip">Node.js</span>
+            <span class="chip">ERP / PDV</span><span class="chip">Questor</span><span class="chip">VIASOFT</span>
+            <span class="chip">Regras fiscais</span><span class="chip">NF-e / NFS-e</span><span class="chip">Mapeamento de processos</span>
           </div>
         </div>
-        <div class="skill-card">
-          <h3><i>🎨</i> Front-end & Design</h3>
+        <div class="skill-card card">
+          <h3><i>🗄️</i> Dados & BI</h3>
           <div class="chips">
-            <span class="chip">React</span><span class="chip">JavaScript</span><span class="chip">HTML5</span><span class="chip">CSS3</span>
-            <span class="chip">Figma</span><span class="chip">Prototipação</span>
+            <span class="chip">Oracle</span><span class="chip">PostgreSQL</span><span class="chip">SQL Server</span>
+            <span class="chip">SQL</span><span class="chip">Power BI</span>
           </div>
         </div>
-        <div class="skill-card">
-          <h3><i>🗄️</i> Dados</h3>
+        <div class="skill-card card">
+          <h3><i>⚙️</i> Desenvolvimento</h3>
           <div class="chips">
-            <span class="chip">Oracle</span><span class="chip">PostgreSQL</span>
-            <span class="chip">SQL Server</span><span class="chip">SQL</span>
-            <span class="chip">Power BI</span>
+            <span class="chip">Kotlin</span><span class="chip">C# / .NET</span><span class="chip">Python</span>
+            <span class="chip">JavaScript</span><span class="chip">React</span><span class="chip">Node.js</span>
+            <span class="chip">HTML / CSS</span>
           </div>
         </div>
-        <div class="skill-card">
-          <h3><i>🧪</i> Qualidade & DevOps</h3>
+        <div class="skill-card card">
+          <h3><i>🤖</i> IA & Automação</h3>
           <div class="chips">
-            <span class="chip">JUnit 5</span><span class="chip">MockK</span>
-            <span class="chip">Testcontainers</span><span class="chip">Playwright</span>
-            <span class="chip">Docker</span><span class="chip">Flyway</span><span class="chip">GitHub Actions</span>
-            <span class="chip">GitLab CI/CD</span>
+            <span class="chip">Agentes de IA</span><span class="chip">Automação de tarefas</span>
+            <span class="chip">IA generativa</span>
           </div>
         </div>
-        <div class="skill-card">
-          <h3><i>🏢</i> Sistemas empresariais</h3>
+        <div class="skill-card card">
+          <h3><i>🚀</i> DevOps & Design</h3>
           <div class="chips">
-            <span class="chip">ERP / PDV</span><span class="chip">Questor</span>
-            <span class="chip">VIASOFT</span><span class="chip">NF-e / NFS-e</span>
+            <span class="chip">Git</span><span class="chip">GitLab CI/CD</span><span class="chip">GitHub Actions</span>
+            <span class="chip">Docker</span><span class="chip">Flyway</span><span class="chip">Figma</span>
+            <span class="chip">Identidade visual</span>
           </div>
         </div>
       </div>
@@ -288,42 +310,56 @@
       <div class="eyebrow">03 — Experiência</div>
       <h2>Trajetória</h2>
       <div class="timeline">
+        <div class="item now">
+          <div class="when">nov/2025 — atual · remoto</div>
+          <h3>Analista de Suporte de Sistemas ERP</h3>
+          <div class="where">Questor Sistemas</div>
+          <p>Análise funcional de ERP com foco em processos administrativos, fiscais e tributários. Diagnostico incidentes
+            e levanto requisitos com o time de desenvolvimento, parametrizo regras fiscais para clientes de diferentes
+            segmentos, valido soluções até a entrega e documento cenários e regras de negócio.</p>
+        </div>
+        <div class="item now">
+          <div class="when">fev/2025 — atual · remoto</div>
+          <h3>Fundadora</h3>
+          <div class="where">GLSOUZZA Tech Solutions</div>
+          <p>Empresa de tecnologia para pequenas e médias empresas: organização de processos e projetos, sistemas
+            sob medida, relatórios e painéis a partir do ERP, agentes de IA e identidade visual.</p>
+        </div>
         <div class="item">
-          <div class="when">abr/2023 — atual</div>
+          <div class="when">abr/2023 — 2025</div>
           <h3>Gerente de Sistemas</h3>
           <div class="where">TRR Vale da Serra Transportes · MT</div>
-          <p>Liderança da infraestrutura de TI para 100+ colaboradores. Backup automatizado com 99,9% de
-            disponibilidade, migração de ERP legado sem downtime, automação e documentação que reduziram
-            em 30% o tempo de atendimento e dashboards Power BI que ampliaram em 40% a visibilidade estratégica.</p>
+          <p>Liderança da infraestrutura de TI para mais de 100 colaboradores. Backup automatizado com 99,9% de
+            disponibilidade, migração de ERP legado sem downtime, automação e documentação que reduziram em 30% o
+            tempo de atendimento e dashboards em Power BI que ampliaram em 40% a visibilidade estratégica.</p>
         </div>
         <div class="item">
           <div class="when">ago/2022 — ago/2023</div>
           <h3>Analista de Projetos · Scrum Master</h3>
           <div class="where">Smart BR Soluções Tecnológicas · Cascavel, PR</div>
-          <p>Scrum Master de um time de 5 desenvolvedores em um PDV multifuncional. Pipeline CI/CD que levou
-            o deploy de 4h para 30min, protótipos em Figma que aumentaram a adoção em 25% e migrations
-            automatizadas com Flyway.</p>
+          <p>Scrum Master de um time de 5 desenvolvedores em um PDV multifuncional. Pipeline CI/CD que levou o deploy
+            de 4h para 30min, protótipos em Figma que aumentaram a adoção em 25% e migrations automatizadas com Flyway.</p>
         </div>
         <div class="item">
           <div class="when">abr/2022 — abr/2023</div>
           <h3>Analista de Sistemas</h3>
           <div class="where">TRR Vale da Serra Transportes · Barra do Garças, MT</div>
-          <p>Administração de bancos Oracle e PostgreSQL, rotinas preventivas que reduziram incidentes em 45%
-            e capacitação de 50+ usuários no novo ERP.</p>
+          <p>Administração de bancos Oracle e PostgreSQL, rotinas preventivas que reduziram incidentes em 45% e
+            capacitação de mais de 50 usuários no novo ERP.</p>
         </div>
         <div class="item">
           <div class="when">set/2021 — abr/2022</div>
           <h3>Analista de Suporte de Sistemas</h3>
           <div class="where">VIASOFT · Pato Branco, PR</div>
-          <p>Suporte N1 a N3 em ERP/PDV, 40+ chamados por semana com SLA de 95% e otimizações SQL
-            de até 50% no tempo de processamento.</p>
+          <p>Suporte N1 a N3 em ERP/PDV, mais de 40 chamados por semana com SLA de 95% e otimizações SQL de até 50%
+            no tempo de processamento.</p>
         </div>
         <div class="item">
           <div class="when">2017 — 2021</div>
           <h3>Experiência administrativa</h3>
           <div class="where">Meu DP · Orientar Contadores · Turim Insumos e Cereais</div>
-          <p>Processos administrativos, folha de pagamento, compliance fiscal e atendimento ao cliente —
-            a base que hoje me ajuda a traduzir o negócio em sistemas.</p>
+          <p>Processos administrativos, departamento pessoal, compliance fiscal e atendimento ao cliente — a base que
+            hoje me ajuda a traduzir o negócio em sistemas.</p>
         </div>
       </div>
     </div>
@@ -332,42 +368,48 @@
   <section id="projetos">
     <div class="wrap reveal">
       <div class="eyebrow">04 — Projetos</div>
-      <h2>O que eu ando construindo</h2>
+      <h2>O que eu ando <span class="grad">construindo</span></h2>
       <div class="projects">
-        <article class="project">
-          <div class="kind">API · Back-end</div>
-          <h3>SaveAdd API</h3>
-          <p>API REST para a plataforma SaveAdd, com cadastro de empresas, endereços e usuários.</p>
+        <article class="project card">
+          <div class="kind">Web · Front-end</div>
+          <h3>Site GLSOUZZA Tech</h3>
+          <p>Site institucional da GLSOUZZA, do conceito visual à publicação, pensado para apresentar os serviços com
+            clareza e levar o visitante a pedir um orçamento.</p>
           <ul>
-            <li>Kotlin + Spring Boot + Gradle</li>
-            <li>SQL Server com Testcontainers</li>
-            <li>Testes com JUnit 5, MockK, Kotest e Datafaker</li>
+            <li>HTML, CSS e JavaScript, responsivo e acessível</li>
+            <li>Identidade neon com tipografia de impacto</li>
+            <li>Domínio próprio, Netlify e Google Search Console</li>
           </ul>
           <div class="links">
-            <a href="https://saveadd.com.br" target="_blank" rel="noopener">Ver produto ↗</a>
+            <a href="https://glsouzzatech.com.br" target="_blank" rel="noopener">Ver site ↗</a>
           </div>
         </article>
-        <article class="project">
-          <div class="kind">Front-end · Testes E2E</div>
-          <h3>FoodGate</h3>
-          <p>Aplicação web em React integrada ao SaveAdd, com seleção de perfis e fluxos de compra.</p>
+        <article class="project card">
+          <div class="kind">IA · Demonstração</div>
+          <h3>Agente de IA “Lia”</h3>
+          <p>Demonstração de uma recepcionista virtual para clínicas, que mostra na prática como um agente de IA
+            atende, tira dúvidas e organiza agendamentos.</p>
           <ul>
-            <li>React + JavaScript</li>
-            <li>Testes end-to-end com Playwright (Chromium, Firefox, WebKit)</li>
-            <li>Pipeline automatizado no GitHub Actions</li>
-          </ul>
-        </article>
-        <article class="project">
-          <div class="kind">UI/UX · Protótipo</div>
-          <h3>Organograma de Redes</h3>
-          <p>Protótipo interativo para visualizar a infraestrutura de rede de uma empresa:
-            servidor principal, servidores por departamento e switches.</p>
-          <ul>
-            <li>Figma com interações de Prototype</li>
-            <li>Layout desktop 1440×1024</li>
+            <li>Conversa simulada com fluxo de atendimento real</li>
+            <li>Pensada para pequenos negócios de saúde</li>
+            <li>Integrada ao site da GLSOUZZA</li>
           </ul>
           <div class="links">
-            <a href="#" target="_blank" rel="noopener">Ver no Figma ↗</a>
+            <a href="https://glsouzzatech.com.br/demo-clinica" target="_blank" rel="noopener">Ver demonstração ↗</a>
+          </div>
+        </article>
+        <article class="project card">
+          <div class="kind">Branding · Design</div>
+          <h3>Kit de marca GLSOUZZA</h3>
+          <p>Identidade visual completa da GLSOUZZA, criada para transmitir tecnologia e inteligência artificial
+            com o mesmo visual no site, no Instagram e no LinkedIn.</p>
+          <ul>
+            <li>Logo GL&gt; em estilo neon e variações</li>
+            <li>Paleta rosa, roxo, azul e ciano com tipografia definida</li>
+            <li>Cartão de visita, papelaria e modelos de posts</li>
+          </ul>
+          <div class="links">
+            <a href="https://www.behance.net/glsouzzatech" target="_blank" rel="noopener">Ver no Behance ↗</a>
           </div>
         </article>
       </div>
@@ -377,12 +419,12 @@
   <section id="formacao">
     <div class="wrap reveal">
       <div class="eyebrow">05 — Formação</div>
-      <h2>Sempre estudando</h2>
+      <h2>Sempre <span class="grad">estudando</span></h2>
       <div class="edu">
-        <div><h3>Ciência da Computação</h3><span>Afya · em andamento</span></div>
-        <div><h3>Análise e Desenvolvimento de Sistemas</h3><span>UNASP · 2024 – 2027</span></div>
-        <div><h3>Bootcamps e trilhas</h3><span>DIO · formação contínua</span></div>
-        <div><h3>Técnico em Administração</h3><span>+ Comunicação Profissional</span></div>
+        <div class="card"><h3>Ciência da Computação</h3><span>Afya · em andamento</span></div>
+        <div class="card"><h3>Análise e Desenvolvimento de Sistemas</h3><span>UNASP · 2024 – 2027</span></div>
+        <div class="card"><h3>Trilhas e bootcamps</h3><span>DIO · formação contínua</span></div>
+        <div class="card"><h3>Técnico em Administração</h3><span>+ Desenvolvimento Pessoal e Comunicação</span></div>
       </div>
     </div>
   </section>
@@ -390,27 +432,32 @@
   <section id="contato" class="contact">
     <div class="wrap reveal">
       <div class="eyebrow">06 — Contato</div>
-      <h2>Tem um projeto em mente?</h2>
-      <p>Estou aberta a projetos como Scrum Master, consultoria em sistemas e desenvolvimento.
-        Me manda uma mensagem!</p>
-      <a href="mailto:gabriellyluiza.gc@gmail.com" class="btn btn-primary">Enviar e-mail</a>
+      <h2>Vamos <span class="grad">conversar?</span></h2>
+      <p>Gosto de trocar ideias sobre ERP, projetos, processos e tecnologia. Fique à vontade para me chamar.</p>
+      <a href="https://www.linkedin.com/in/glsouzza" target="_blank" rel="noopener" class="btn btn-primary">Falar no LinkedIn</a>
       <div class="socials">
-        <a href="https://www.linkedin.com/in/glsouzza" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="mailto:gabriellyluiza.gc@gmail.com">E-mail</a>
         <a href="https://github.com/glsouzza" target="_blank" rel="noopener">GitHub</a>
-        <a href="https://wa.me/5546991031046" target="_blank" rel="noopener">WhatsApp</a>
+        <a href="https://www.instagram.com/glsouzza_tech/" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.behance.net/glsouzzatech" target="_blank" rel="noopener">Behance</a>
+      </div>
+      <div class="company card">
+        <div class="mark"><span class="grad">GL&gt;</span></div>
+        <p>Procurando tecnologia para a sua empresa? Conheça a <a href="https://glsouzzatech.com.br" target="_blank" rel="noopener">GLSOUZZA Tech ↗</a>
+          — processos, sistemas sob medida, painéis e agentes de IA para pequenas e médias empresas.</p>
       </div>
     </div>
   </section>
 
   <footer>
-    © <span id="ano"></span> Gabrielly Luiza · Mariópolis – PR · feito com café e HTML puro
+    © <span id="ano"></span> Gabrielly Luiza · &lt;glsouzza/&gt;
   </footer>
 
   <script>
     document.getElementById("ano").textContent = new Date().getFullYear();
     const io = new IntersectionObserver((entries) => {
       entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add("show"); io.unobserve(e.target); } });
-    }, { threshold: 0.12 });
+    }, { threshold: 0.1 });
     document.querySelectorAll(".reveal").forEach((el) => io.observe(el));
   </script>
 </body>
