@@ -92,6 +92,11 @@
     .btn-primary:hover { box-shadow: 0 10px 38px rgba(255, 45, 140, .45); }
     .btn-ghost { border: 1.5px solid var(--line2); color: var(--ink); }
 
+    .hero-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 40px; align-items: center; }
+    .avatar { width: 100%; max-width: 340px; justify-self: center; aspect-ratio: 1; border-radius: 50%; overflow: hidden; box-shadow: 0 0 60px rgba(170,70,255,.35); }
+    .avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    @media (max-width: 780px) { .hero-grid { grid-template-columns: 1fr; } .avatar { max-width: 220px; order: -1; } }
+
     /* SECTIONS */
     section { padding: 86px 0; border-top: 1px solid var(--line); }
     .eyebrow { font-family: var(--mono); font-size: .78rem; color: var(--pink); letter-spacing: .1em; text-transform: uppercase; }
@@ -208,7 +213,8 @@
   </nav>
 
   <header class="hero">
-    <div class="wrap">
+    <div class="wrap hero-grid">
+      <div>
       <div class="tag">Mariópolis – PR · trabalho remoto</div>
       <h1>Conecto <span class="grad">pessoas</span>, processos e código.</h1>
       <p class="lead">
@@ -220,6 +226,8 @@
         <a href="#projetos" class="btn btn-primary">Ver projetos</a>
         <a href="#experiencia" class="btn btn-ghost">Minha trajetória</a>
       </div>
+      </div>
+      <div class="avatar"><img src="foto.jpg" alt="Foto de Gabrielly Luiza" width="640" height="640"></div>
     </div>
   </header>
 
